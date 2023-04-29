@@ -18,7 +18,11 @@ const OrderScreen = (props: Props) => {
         options={{
           title: 'Past Orders',
           tabBarLabelStyle: {
-            fontFamily: 'Montserrat-SemiBold',
+            fontFamily: 'Montserrat-ExtraBold',
+          },
+          tabBarActiveTintColor: '#b3afd4',
+          tabBarIndicatorStyle: {
+            backgroundColor: '#b3afd4',
           },
         }}
       />
@@ -28,12 +32,12 @@ const OrderScreen = (props: Props) => {
         options={{
           title: 'Current Orders',
           tabBarLabelStyle: {
-            fontFamily: 'Montserrat-SemiBold',
+            fontFamily: 'Montserrat-ExtraBold',
           },
-          tabBarActiveTintColor : "black",
-          tabBarIndicatorStyle : {
-            backgroundColor : "black"
-          }
+          tabBarActiveTintColor: '#b3afd4',
+          tabBarIndicatorStyle: {
+            backgroundColor: '#b3afd4',
+          },
         }}
       />
     </Tab.Navigator>

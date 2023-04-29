@@ -6,6 +6,7 @@ import {
   TextInput,
   KeyboardTypeOptions,
   Pressable,
+  View,
   ActivityIndicator,
 } from 'react-native';
 import React from 'react';
@@ -77,6 +78,40 @@ export const Button = ({className, onPress, text, activity}: Propss) => {
   );
 };
 
+type IconButtonProps = {
+  className: string | undefined;
+  onPress: any;
+  text: string;
+  activity: boolean | undefined;
+  Icon : any;
+  IconName : string;
+  color : string;
+};
+
+// Button
+export const IconButtonPress = ({className, onPress, text, activity, Icon, IconName, color}: IconButtonProps) => {
+  return (
+    <Pressable
+      onPress={onPress}
+      className={`mx-2 px-1 py-1 ${color}   mt-4 rounded-xl`}>
+      {activity ? (
+        <ActivityIndicator size="small" color="#fff" />
+      ) : (
+        <View className='flex-row space-x-2 justify-center items-center'>
+          <Icon name={IconName} size={20} color="white"/>
+          <Text
+            style={{fontFamily: 'Montserrat-Regular'}}
+            className={`text-white font-semibold ${className} text-lg rounded-md cursor-pointer hover:bg-blue-500 text-center py-3 `}>
+            {text}
+          </Text>
+        </View>
+      )}
+    </Pressable>
+  );
+};
+
+
+
 type IconProps = {
   Icon: any;
   color: string | undefined;
@@ -105,7 +140,7 @@ type TextProps = {
 export const Textin = ({classn, data}: TextProps) => {
   return (
     <Text
-      className={`${classn} font-bold`}
+      className={`${classn}`}
       style={{fontFamily: 'Montserrat-Regular'}}>
       {data}
     </Text>
