@@ -1,0 +1,53 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  View,
+  ImageBackground,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
+  KeyboardAvoidingView,
+} from "react-native";
+import React from "react";
+import Image from "../assets/backg/black4.jpg";
+import Signupp from "components/Auth/Signupp";
+
+type Props = {
+  navigation: {
+    navigate: (route: string, query?: any) => void;
+  };
+};
+
+const Signup = ({ navigation: { navigate } }: Props) => {
+  return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior="position"
+        keyboardVerticalOffset={-150}
+      >
+        <View style={styles.container}>
+          <ImageBackground
+            source={Image}
+            resizeMode="cover"
+            style={styles.background}
+            className="bg-black h-screen object-cover"
+          >
+            <Signupp navigate={navigate} />
+          </ImageBackground>
+        </View>
+      </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
+  );
+};
+
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+  },
+});
+
+export default Signup;

@@ -1,0 +1,16 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    // Path alias config
+    "baseUrl": ".",
+    "paths": {
+      // This needs to be mirrored in babel.config.js
+      "screens/": ["screens/*"],
+      "components/*": ["components/*"],
+      "assets/*": ["assets/*"]
+
+      // We want to expose the exports of the buttons index file
+    }
+  }
+}
