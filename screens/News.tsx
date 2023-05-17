@@ -9,7 +9,7 @@ import HomeScreen from 'components/BottomTab/HomeScreen';
 import OrderScreen from 'components/BottomTab/OrderScreen';
 import ProfileScreen from 'components/BottomTab/ProfileScreen';
 import {DrawerActions} from '@react-navigation/native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -55,7 +55,7 @@ const FirstPage = ({navigation: {navigate}}: Props) => {
 
           // You can return any component that you like here!
           return (
-            <Ionicons
+            <Icon
               className="py-2 px-2"
               name={iconName}
               size={26}
@@ -100,8 +100,13 @@ const Drawer = createDrawerNavigator();
 
 function News() {
   const drawerIcon = ({focused, color, size}: any) => (
-    <Ionicons name="home" size={15} color={color} />
+    <Icon name="home" size={15} color={color} />
   );
+
+    const MenuIcon = ({focused, color, size}: any) => (
+      <Icon name="grid-sharp" size={15} color={color} />
+    );
+
 
   return (
     <Drawer.Navigator
@@ -134,7 +139,19 @@ function News() {
           },
         }}
       />
-      <Drawer.Screen name="Menu" component={Menu} />
+      <Drawer.Screen name="Menu" component={Menu}      options={{
+          title: '',
+          headerRight: () => <HomeScreenHeaderRight />,
+          drawerIcon : MenuIcon,
+          headerTintColor: 'black',
+          headerStyle: {
+            backgroundColor: 'white',
+          },
+          headerTitleStyle: {
+            fontFamily: 'Montserrat-SemiBold',
+            color: '#000000',
+          },
+        }}/>
       <Drawer.Screen name="Vendors" component={Vendors} />
       <Drawer.Screen name="Groups" component={Groups} />
       <Drawer.Screen name="Rewards" component={Rewards} />
